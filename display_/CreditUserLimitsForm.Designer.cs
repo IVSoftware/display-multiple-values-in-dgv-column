@@ -35,20 +35,22 @@ namespace display_multiple_values_in_dgv_column
             // 
             // dataGridViewCreditUser
             // 
+            this.dataGridViewCreditUser.BackgroundColor = System.Drawing.Color.LightGray;
             this.dataGridViewCreditUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCreditUser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewCreditUser.GridColor = System.Drawing.Color.DarkSeaGreen;
             this.dataGridViewCreditUser.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewCreditUser.Name = "dataGridViewCreditUser";
             this.dataGridViewCreditUser.RowHeadersWidth = 62;
             this.dataGridViewCreditUser.RowTemplate.Height = 33;
-            this.dataGridViewCreditUser.Size = new System.Drawing.Size(578, 344);
+            this.dataGridViewCreditUser.Size = new System.Drawing.Size(578, 244);
             this.dataGridViewCreditUser.TabIndex = 0;
             // 
             // CreditUserLimitsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(578, 344);
+            this.ClientSize = new System.Drawing.Size(578, 244);
             this.Controls.Add(this.dataGridViewCreditUser);
             this.Name = "CreditUserLimitsForm";
             this.Text = "Main Form";

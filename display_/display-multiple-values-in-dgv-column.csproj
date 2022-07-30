@@ -7,4 +7,8 @@
     <RootNamespace>display_multiple_values_in_dgv_column</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="ReadMe\" />
+  </ItemGroup>
+
 </Project>

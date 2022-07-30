@@ -24,7 +24,7 @@ First, there will be a `BindingList<string>` that will serve as the data source 
     };
 
 ***
-What I did for testing is initialize the `dataGridViewCreditUser` with a binding list named `CreditUsers` that in the override of `OnLoad` (there's no need to have the form subscribe to its own  `Load` event). Allow me to explain what I've done and you can modify this flow to your specific requirements.
+What I did for testing is initialize the `dataGridViewCreditUser` with a binding list named `CreditUsers` that in the override of `OnLoad` (there's no need to have the form subscribe to its own  `Load` event). 
 
     
     readonly BindingList<CreditUser> CreditUsers = new BindingList<CreditUser>();

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32413.511
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "display-multiple-values-in-dgv-column", "display_\display-multiple-values-in-dgv-column.csproj", "{FFD2D820-7C98-4720-83F7-B6DD8AE2874B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FFD2D820-7C98-4720-83F7-B6DD8AE2874B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFD2D820-7C98-4720-83F7-B6DD8AE2874B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFD2D820-7C98-4720-83F7-B6DD8AE2874B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFD2D820-7C98-4720-83F7-B6DD8AE2874B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CCDB6AEE-EB6F-480F-A133-1DE52F2D222E}
+	EndGlobalSection
+EndGlobal

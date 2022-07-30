@@ -1,4 +1,4 @@
-#display-multiple-values-in-dgv-column
+#display-multiple-values-in-dgv-column#
 
 Example of a `DataGridView` with a custom `DataGridComboBoxColumn` that has drop down options that are tailored for each user. Something like this:
 

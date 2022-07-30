@@ -8,7 +8,7 @@ Example of a `DataGridView` with a custom `DataGridComboBoxColumn` that has drop
 ***
 **DataSource for ComboBox**
 
-First, there will be a `BindingList<string>` that will serve as the data source of a `DataGridViewComboBoxColumn`. We'll start with _all_ possible values but this **will** change. When when a new cell is selected its contents will be modified based on the individual `CreditUser` that has been selected.
+First, the data source of `DataGridViewComboBoxColumn` will be a `BindingList<string>` that initially contains _all_ possible values but this **will** change.  When when a new cell is selected its contents will be modified based on the individual `CreditUser` that has been selected.
 
     // Initialize with all allowed types. This list will be modified
     // whenever the cell selection is changed in the DGV. 
@@ -24,7 +24,7 @@ First, there will be a `BindingList<string>` that will serve as the data source 
     };
 
 ***
-What I did for testing is initialize the `dataGridViewCreditUser` with a binding list named `CreditUsers` that in the override of `OnLoad` (there's no need to have the form subscribe to its own  `Load` event). 
+What I did for testing is initialize the `dataGridViewCreditUser` with a binding list named `CreditUsers` in the override of `OnLoad` (there's no need to have the form subscribe to its own  `Load` event). 
 
     
     readonly BindingList<CreditUser> CreditUsers = new BindingList<CreditUser>();

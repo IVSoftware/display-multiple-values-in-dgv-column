@@ -4,7 +4,6 @@ Example of a `DataGridView` with a custom `DataGridComboBoxColumn` that has drop
 
 ![screenshot](https://github.com/IVSoftware/display-multiple-values-in-dgv-column/blob/master/display_/ReadMe/screenshot.png)
 
-I'd like to offer a guideline example showing one way this outcome could be realized. 
 
 ***
 **DataSource for ComboBox**

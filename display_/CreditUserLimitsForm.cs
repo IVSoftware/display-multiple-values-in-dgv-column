@@ -42,22 +42,6 @@ namespace display_multiple_values_in_dgv_column
                     e.Cancel = e.Exception.Message == "DataGridViewComboBoxCell value is not valid.";
             };
 
-            // Assign allowed customer types when cell selection changes
-            dataGridViewCreditUser.CurrentCellChanged += (sender, e) =>
-            {
-                if (dataGridViewCreditUser.CurrentCell != null)
-                {
-                    var creditUser = CreditUsers[dataGridViewCreditUser.CurrentCell.RowIndex];
-                    Text = creditUser.ToString(); // Update title bar.
-                    var colCB = ((DataGridViewComboBoxColumn)dataGridViewCreditUser.Columns[nameof(CreditUser.CustomerType)]);
-                    ResponsibleList.Clear();
-                    foreach (var allowedType in creditUser.AllowedCustomerTypes)
-                    {
-                        ResponsibleList.Add(allowedType);
-                    }
-                }
-            };
-
             // Make sure the cell is NOT left in an editing
             // state after change of ComboBox or CheckBox.
             dataGridViewCreditUser.CurrentCellDirtyStateChanged += (sender, e) =>
@@ -114,37 +98,18 @@ namespace display_multiple_values_in_dgv_column
                 new CreditUser
                 {
                     UserName = "Tom",
-                    CreditLimit=10000m,
-                    AllowedCustomerTypes = new List<string>
-                    { 
-                        "Production", 
-                        "Distribution", 
-                        String.Empty 
-                    },
+                    CreditLimit=10000m
                 },
                 new CreditUser
                 {
                     UserName = "Richard",
                     CreditLimit=1250m,
-                    AllowedCustomerTypes = new List<string>
-                    { 
-                        "Distribution", 
-                        "Customer Service", 
-                        String.Empty 
-                    },
                     Restricted = true
                 },
                 new CreditUser
                 {
                     UserName = "Harry",
-                    CreditLimit=10000m,
-                    AllowedCustomerTypes = new List<string>
-                    { 
-                        "Production", 
-                        "Customer Service", 
-                        "Sales", 
-                        String.Empty 
-                    },
+                    CreditLimit=10000m
                 },
             };
         }
@@ -206,8 +171,6 @@ namespace display_multiple_values_in_dgv_column
                 }
             }
         }
-        [Browsable(false)]
-        public List<string> AllowedCustomerTypes { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged([CallerMemberName] string propertyName = null) =>

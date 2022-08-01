@@ -83,11 +83,11 @@ namespace display_multiple_values_in_dgv_column
         // whenever the cell selection is changed in the DGV. 
         private readonly BindingList<string> ResponsibleList = new BindingList<string>
         {
-            String.Empty,
             "Production", 
             "Distribution", 
             "Customer Service", 
-            "Sales"
+            "Sales",
+            String.Empty,
         };
 
         // MOCK for minimal example

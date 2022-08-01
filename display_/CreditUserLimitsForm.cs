@@ -7,9 +7,9 @@ using System.Windows.Forms;
 
 namespace display_multiple_values_in_dgv_column
 {
-    public partial class CreditUserLimitsForm  : Form
+    public partial class CreditUserLimitsForm : Form
     {
-        public CreditUserLimitsForm () => InitializeComponent();
+        public CreditUserLimitsForm() => InitializeComponent();
 
         readonly BindingList<CreditUser> CreditUsers = new BindingList<CreditUser>();
         protected override void OnLoad(EventArgs e)
@@ -38,8 +38,24 @@ namespace display_multiple_values_in_dgv_column
             // Cancel the known exception caused by clearing the data source.
             dataGridViewCreditUser.DataError += (sender, e) =>
             {
-                    // This transitory state is caused by AllowedCustomerTypeForUser.Clear();
-                    e.Cancel = e.Exception.Message == "DataGridViewComboBoxCell value is not valid.";
+                // This transitory state is caused by AllowedCustomerTypeForUser.Clear();
+                e.Cancel = e.Exception.Message == "DataGridViewComboBoxCell value is not valid.";
+            };
+
+            // Assign allowed customer types when cell selection changes
+            dataGridViewCreditUser.CurrentCellChanged += (sender, e) =>
+            {
+                if ((dataGridViewCreditUser.CurrentCell != null) && (dataGridViewCreditUser.CurrentCell.RowIndex < CreditUsers.Count))
+                {
+                    var creditUser = CreditUsers[dataGridViewCreditUser.CurrentCell.RowIndex];
+                    Text = creditUser.ToString(); // Update title bar.
+                    var colCB = ((DataGridViewComboBoxColumn)dataGridViewCreditUser.Columns[nameof(CreditUser.CustomerType)]);
+                    ResponsibleList.Clear();
+                    foreach (var allowedType in creditUser.AllowedCustomerTypes)
+                    {
+                        ResponsibleList.Add(allowedType);
+                    }
+                }
             };
 
             // Make sure the cell is NOT left in an editing
@@ -83,9 +99,9 @@ namespace display_multiple_values_in_dgv_column
         // whenever the cell selection is changed in the DGV. 
         private readonly BindingList<string> ResponsibleList = new BindingList<string>
         {
-            "Production", 
-            "Distribution", 
-            "Customer Service", 
+            "Production",
+            "Distribution",
+            "Customer Service",
             "Sales",
             String.Empty,
         };
@@ -98,18 +114,37 @@ namespace display_multiple_values_in_dgv_column
                 new CreditUser
                 {
                     UserName = "Tom",
-                    CreditLimit=10000m
+                    CreditLimit=10000m,
+                    AllowedCustomerTypes = new List<string>
+                    {
+                        "Production",
+                        "Distribution",
+                        String.Empty
+                    },
                 },
                 new CreditUser
                 {
                     UserName = "Richard",
                     CreditLimit=1250m,
+                    AllowedCustomerTypes = new List<string>
+                    {
+                        "Distribution",
+                        "Customer Service",
+                        String.Empty
+                    },
                     Restricted = true
                 },
                 new CreditUser
                 {
                     UserName = "Harry",
-                    CreditLimit=10000m
+                    CreditLimit=10000m,
+                    AllowedCustomerTypes = new List<string>
+                    {
+                        "Production",
+                        "Customer Service",
+                        "Sales",
+                        String.Empty
+                    },
                 },
             };
         }
@@ -171,6 +206,16 @@ namespace display_multiple_values_in_dgv_column
                 }
             }
         }
+
+        [Browsable(false)]
+        public List<string> AllowedCustomerTypes { get; set; } = new List<string>
+        {
+            "Production",
+            "Distribution",
+            "Customer Service",
+            "Sales",
+            String.Empty,
+        };
 
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged([CallerMemberName] string propertyName = null) =>

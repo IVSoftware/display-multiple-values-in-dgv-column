@@ -98,18 +98,18 @@ namespace display_multiple_values_in_dgv_column
                 new CreditUser
                 {
                     UserName = "Tom",
-                    CreditLimit=10000m
+                    CreditLimit=10000m,
                 },
                 new CreditUser
                 {
                     UserName = "Richard",
                     CreditLimit=1250m,
-                    Restricted = true
+                    Restricted = true,
                 },
                 new CreditUser
                 {
                     UserName = "Harry",
-                    CreditLimit=10000m
+                    CreditLimit=10000m,
                 },
             };
         }

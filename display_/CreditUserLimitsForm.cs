@@ -58,7 +58,7 @@ namespace display_multiple_values_in_dgv_column
             // Update the Title bar when anything changes in the list.
             CreditUsers.ListChanged += (sender, e) =>
             {
-                if (dataGridViewCreditUser.CurrentCell != null)
+                if ((dataGridViewCreditUser.CurrentCell != null) && (dataGridViewCreditUser.CurrentCell.RowIndex < CreditUsers.Count))
                 {
                     var creditUser = CreditUsers[dataGridViewCreditUser.CurrentCell.RowIndex];
                     Text = creditUser.ToString();

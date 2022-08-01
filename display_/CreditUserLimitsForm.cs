@@ -35,13 +35,6 @@ namespace display_multiple_values_in_dgv_column
             dataGridViewCreditUser.Columns.RemoveAt(index);
             dataGridViewCreditUser.Columns.Insert(index, colCB);
 
-            // Cancel the known exception caused by clearing the data source.
-            dataGridViewCreditUser.DataError += (sender, e) =>
-            {
-                    // This transitory state is caused by AllowedCustomerTypeForUser.Clear();
-                    e.Cancel = e.Exception.Message == "DataGridViewComboBoxCell value is not valid.";
-            };
-
             // Make sure the cell is NOT left in an editing
             // state after change of ComboBox or CheckBox.
             dataGridViewCreditUser.CurrentCellDirtyStateChanged += (sender, e) =>
@@ -79,9 +72,8 @@ namespace display_multiple_values_in_dgv_column
             }
         }
 
-        // Initialize with all allowed types. This list will be modified
-        // whenever the cell selection is changed in the DGV. 
-        private readonly BindingList<string> ResponsibleList = new BindingList<string>
+        // Provides the combo box options. This list will not change.
+        private readonly string[] ResponsibleList = new []
         {
             "Production", 
             "Distribution", 

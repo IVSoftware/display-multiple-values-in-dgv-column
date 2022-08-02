@@ -14,6 +14,7 @@ namespace display_multiple_values_in_dgv_column
         readonly BindingList<CreditUser> CreditUsers = new BindingList<CreditUser>();
         protected override void OnLoad(EventArgs e)
         {
+            base.OnLoad(e); // Fires the Load event
             dataGridViewCreditUser.DataSource = CreditUsers;
             // This will autogenerate columns
             foreach (var creditUser in mockMainForm_srv_GetCreditUser("", ""))
